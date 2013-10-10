@@ -15,12 +15,7 @@
     </head>
     <body>
 		<?php 
-		$ssi_guest_access = true;
-		require("../SSI.php");
-		require("config/func.php");
-		template_ssi_above();
 		?>
-<!--		<h1> <center><img src ="css/logo.png" height ="150"/></center> </h1>-->
 		<div>
 		<center>
 		<table id="tablesorter" class="tablesorter">
@@ -78,5 +73,4 @@
 		<center>
 		</div>
     </body>
-	<?php template_ssi_below(); ?>
 </html>
