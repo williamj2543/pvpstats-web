@@ -15,9 +15,12 @@
     </head>
     <body>
 		<?php 
-
+		$ssi_guest_access = true;
+		require("../SSI.php");
+		require("config/func.php");
+		template_ssi_above();
 		?>
-
+<!--		<h1> <center><img src ="css/logo.png" height ="150"/></center> </h1>-->
 		<div>
 		<center>
 		<table id="tablesorter" class="tablesorter">
@@ -36,10 +39,10 @@
 		require("config/config.php");
 		$top10 = mysql_query("SELECT * FROM pvpstats ORDER BY kills DESC");
 		if(!$top10){
-			echo "lol";
+			echo "Error";
 			die;
 		}
-		$mobTypes = array("Blaze", "Cave Spider", "Creeper", "Ghast", "Magma Cube", "Silverfish", "Skeleton", "Slime", "Spider", "Witch", "Zombie", "Zombie Pigman", "Wither", "Enderman", "Ender Dragon", "Wolf");
+		$mobTypes = array("Blaze", "Cave Spider", "Creeper", "Ghast", "Magma Cube", "Silverfish", "Skeleton", "Slime", "Spider", "Witch", "Zombie", "WitherSkeleton", "Zombie Pigman", "Wither", "Enderman", "Ender Dragon", "Wolf");
 		while($player = mysql_fetch_assoc($top10)){
 			$kills = $player['kills'];
 			$deaths = $player['deaths'];
@@ -49,7 +52,7 @@
 			} else {
 				$kd = 0;
 			}
-			$output = "\n<tr><td>" . $points . "</td><td><img src=\"https://minotar.net/helm/".$player['name'].".png\" style=\"border-radius:3px;\" width=\"32\" height=\"32\"/></td><td>" . $player['name'] . "</td><td>" . $player['kills'] . "</td><td>" . $player['deaths'] . "</td><td>" . round($kd, 2) . "</td></tr>\n";
+			$output = "\n<tr><td>" . $points . "</td><td><img src=\"https://minotar.net/helm/".$player['name'].".png\" style=\"border-radius:3px;\" width=\"32\" height=\"32\"/></td><td><a href =\"player/".$player['name']." \"/>". $player['name']."</a></td><td>" . $player['kills'] . "</td><td>" . $player['deaths'] . "</td><td>" . round($kd, 2) . "</td></tr>\n";
 			if(!isset($_GET['mob'])){
 				$_GET['mob'] = "no";
 			}
@@ -62,7 +65,7 @@
 			}	
 		}
 		
-		
+
 		?>
 		</tbody>
 		</table>
@@ -75,5 +78,5 @@
 		<center>
 		</div>
     </body>
-	<?php  ?>
+	<?php template_ssi_below(); ?>
 </html>

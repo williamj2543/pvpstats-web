@@ -5,8 +5,8 @@
 //
 $servername = "localhost"; //Server name (usually "localhost")
 $database = "pvpstats";    //Database name (often username_databasename)
-$username = "usr";        //User name for MySQL Database
-$password = "pass";          //Password for MySQL User name
+$username = "root";        //User name for MySQL Database
+$password = "test";          //Password for MySQL User name
 //
 //// \\\\\\\\\\\\\\\\\\\\\\\DO NOT EDIT BELOW\\\\\\\\\\\\\\\\\\\\\\\
 //

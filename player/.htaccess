@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^([^/.]+)$ /pvpstats/player/index.php?player=$1
